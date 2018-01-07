@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maze solver and generator</title>
+  <link rel="stylesheet" type="text/css" href="build/maze.css">
+</head>
+<body>
+<main>
+  <canvas id='myCanvas' > </canvas>
+  <div id='button_wrapper'>
+    <button  id='pathFinder'> find path</button>
+    <button  id='reset'> reset</button>
+    <button  id='create'> create maze</button>
+    <button  id='clearPath'> clear path</button>
+    <button  id='clearWalls'> clear walls</button>
+  </div>
+</main>
+
+<aside>
+  <ul>
+    <li><div id="start"></div>Start</li>
+    <li><div id="finish"></div>Finish</li>
+    <li><div id="empty"></div>Empty space</li>
+    <li><div id="wall"></div>Wall</li>	
+  </ul>
+  <p>
+  This is a simple maze generator and solver made using HTML5 Canvas. You can create your own maze or move the start and finish squares by clicking on the canvas and dragging your mouse or just press <em><strong>create maze</strong></em> button and let the program generate a random maze for you. A* algorithm is used for finding the path between the start and finish squares. Enjoy!
+  </p>
+</aside>
+
+<script type="text/javascript" src='build/main.bundle.js'></script>
+
+</body>
+</html>
