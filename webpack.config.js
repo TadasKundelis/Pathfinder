@@ -12,30 +12,30 @@ module.exports = {
     path: path.resolve(__dirname, 'build'),
     filename: 'main.bundle.js'
   },
-   module: {
-	   rules: [
-		   {
-		    test: /\.js$/,
+  module: {
+  	rules: [
+      {
+	    test: /\.js$/,
         use: {
-				  loader: 'babel-loader',
-				  options: {
-					  presets: ['env']
-				  }
-			  }, 			
-		  },
-			{
-			test: /\.scss$/,
+	      loader: 'babel-loader',
+	      options: {
+	        presets: ['env']
+	      }
+        }, 			
+      },
+      {
+	    test: /\.scss$/,
         use: extractPlugin.extract({
-					use: ['css-loader', 'sass-loader']
-				})
-			}
-	  ]
+		  use: ['css-loader', 'sass-loader']
+		})
+	  }
+	]
   },
-	 watch : true,
-     stats: {
-       colors: true
-     },
-	 plugins: [
-	   extractCss
-   ] 
-}
+  watch : true,
+  stats: {
+    colors: true
+  },
+  plugins: [
+    extractCss
+  ] 
+ }
