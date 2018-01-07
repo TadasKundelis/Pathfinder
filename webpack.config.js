@@ -7,34 +7,35 @@ var extractCss = new extractPlugin({
 })
 
 module.exports = {
-     entry: './js/main.js',
-     output: {
-         path: path.resolve(__dirname, 'build'),
-         filename: 'main.bundle.js'
-     },
-     module: {
-	     rules: [
-		    {
-		        test: /\.js$/,
-                use: {
-				    loader: 'babel-loader',
-				    options: {
-					    presets: ['env']
-				    }
-			    }, 			
-		    },
+  entry: './js/main.js',
+  output: {
+    path: path.resolve(__dirname, 'build'),
+    filename: 'main.bundle.js'
+  },
+   module: {
+	   rules: [
+		   {
+		    test: /\.js$/,
+        use: {
+				  loader: 'babel-loader',
+				  options: {
+					  presets: ['env']
+				  }
+			  }, 			
+		  },
 			{
-				test: /\.scss$/,
-                use: extractPlugin.extract({
+			test: /\.scss$/,
+        use: extractPlugin.extract({
 					use: ['css-loader', 'sass-loader']
 				})
-			}]
-	 },
+			}
+	  ]
+  },
 	 watch : true,
      stats: {
-         colors: true
+       colors: true
      },
 	 plugins: [
-	     extractCss
-    ] 
- }
+	   extractCss
+   ] 
+}
