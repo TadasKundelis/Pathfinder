@@ -98,42 +98,10 @@ var clearWallsBtn = exports.clearWallsBtn = document.getElementById('clearWalls'
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.drawRectangle = drawRectangle;
-
-var _constants = __webpack_require__(0);
-
-var _domCache = __webpack_require__(1);
-
-var _maze = __webpack_require__(14);
-
-var _maze2 = _interopRequireDefault(_maze);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var startSquareColor = _maze2.default.startSquareColor;
-var finishSquareColor = _maze2.default.finishSquareColor;
-var wallSquareColor = _maze2.default.wallSquareColor;
-var emptySquareColor = _maze2.default.emptySquareColor;
-var pathSquareColor = _maze2.default.pathSquareColor;
-
-_domCache.canvas.width = (_constants.tileW + 1) * _constants.numberOfCols - 1;
-_domCache.canvas.height = (_constants.tileH + 1) * _constants.numberOfRows - 1;
-
-function drawRectangle(x, y, state) {
-  if (state === 'start') _domCache.ctx.fillStyle = startSquareColor;else if (state === 'finish') _domCache.ctx.fillStyle = finishSquareColor;else if (state === 'wall') _domCache.ctx.fillStyle = wallSquareColor;else if (state === 'path') _domCache.ctx.fillStyle = pathSquareColor;else _domCache.ctx.fillStyle = emptySquareColor;
-  _domCache.ctx.beginPath();
-  _domCache.ctx.rect(x, y, _constants.tileW, _constants.tileH);
-  _domCache.ctx.closePath();
-  _domCache.ctx.fill();
-}
+// removed by extract-text-webpack-plugin
+module.exports = {"startSquareColor":"#ff8c1a","finishSquareColor":"#4d4dff","wallSquareColor":"#515151","emptySquareColor":"#c0c0c0","pathSquareColor":"#00b33c"};
 
 /***/ }),
 /* 3 */
@@ -146,15 +114,15 @@ var _gridClass = __webpack_require__(4);
 
 var _gridClass2 = _interopRequireDefault(_gridClass);
 
-var _mazeClass = __webpack_require__(6);
+var _mazeClass = __webpack_require__(7);
 
 var _mazeClass2 = _interopRequireDefault(_mazeClass);
 
-var _pathfinderClass = __webpack_require__(7);
+var _pathfinderClass = __webpack_require__(8);
 
 var _pathfinderClass2 = _interopRequireDefault(_pathfinderClass);
 
-var _mouseEvents = __webpack_require__(9);
+var _mouseEvents = __webpack_require__(11);
 
 var _mouseEvents2 = _interopRequireDefault(_mouseEvents);
 
@@ -162,7 +130,7 @@ var _domCache = __webpack_require__(1);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-__webpack_require__(14);
+__webpack_require__(2);
 
 
 var grid = new _gridClass2.default();
@@ -344,7 +312,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _drawClass = __webpack_require__(2);
+var _drawClass = __webpack_require__(6);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -395,6 +363,45 @@ exports.default = Tile;
 
 /***/ }),
 /* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.drawRectangle = drawRectangle;
+
+var _constants = __webpack_require__(0);
+
+var _domCache = __webpack_require__(1);
+
+var _maze = __webpack_require__(2);
+
+var _maze2 = _interopRequireDefault(_maze);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var startSquareColor = _maze2.default.startSquareColor;
+var finishSquareColor = _maze2.default.finishSquareColor;
+var wallSquareColor = _maze2.default.wallSquareColor;
+var emptySquareColor = _maze2.default.emptySquareColor;
+var pathSquareColor = _maze2.default.pathSquareColor;
+
+_domCache.canvas.width = (_constants.tileW + 1) * _constants.numberOfCols - 1;
+_domCache.canvas.height = (_constants.tileH + 1) * _constants.numberOfRows - 1;
+
+function drawRectangle(x, y, state) {
+  if (state === 'start') _domCache.ctx.fillStyle = startSquareColor;else if (state === 'finish') _domCache.ctx.fillStyle = finishSquareColor;else if (state === 'wall') _domCache.ctx.fillStyle = wallSquareColor;else if (state === 'path') _domCache.ctx.fillStyle = pathSquareColor;else _domCache.ctx.fillStyle = emptySquareColor;
+  _domCache.ctx.beginPath();
+  _domCache.ctx.rect(x, y, _constants.tileW, _constants.tileH);
+  _domCache.ctx.closePath();
+  _domCache.ctx.fill();
+}
+
+/***/ }),
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -538,7 +545,7 @@ var Maze = function () {
 exports.default = Maze;
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -552,7 +559,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _constants = __webpack_require__(0);
 
-var _astarClass = __webpack_require__(11);
+var _astarClass = __webpack_require__(9);
 
 var _astarClass2 = _interopRequireDefault(_astarClass);
 
@@ -645,149 +652,7 @@ var PathFinder = function () {
 exports.default = PathFinder;
 
 /***/ }),
-/* 8 */,
 /* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _constants = __webpack_require__(0);
-
-var _domCache = __webpack_require__(1);
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var MouseEvents = function () {
-  function MouseEvents(gridInstance) {
-    var _this = this;
-
-    _classCallCheck(this, MouseEvents);
-
-    this.grid = gridInstance.grid;
-    this.mouseMoveWrapper = function (e) {
-      return _this.move(e);
-    }; // need to wrap the function to be able to remove the event listener
-    this.moveSource;
-    this.previousRow;
-    this.previousCol;
-  }
-
-  _createClass(MouseEvents, [{
-    key: 'down',
-    value: function down(e) {
-      e = e || window.event;
-      var x = e.pageX - _domCache.canvas.offsetLeft;
-      var y = e.pageY - _domCache.canvas.offsetTop;
-
-      _domCache.canvas.addEventListener("mousemove", this.mouseMoveWrapper);
-
-      for (var row = 0; row < _constants.numberOfRows; row++) {
-        for (var col = 0; col < _constants.numberOfCols; col++) {
-          var currentTile = this.grid[row][col];
-          if (this.isEventTarget(currentTile, x, y)) {
-            if (currentTile.state === 'start') {
-              this.moveSource = 'start';
-            } else if (currentTile.state === 'finish') {
-              this.moveSource = 'finish';
-            } else {
-              currentTile.state = currentTile.state === 'empty' ? 'wall' : currentTile.state === 'wall' ? 'empty' : currentTile.state;
-              currentTile.draw(currentTile.state);
-            }
-            this.previousRow = row;
-            this.previousCol = col;
-          }
-        }
-      }
-    }
-  }, {
-    key: 'move',
-    value: function move(e) {
-      e = e || window.event;
-      var x = e.pageX - _domCache.canvas.offsetLeft;
-      var y = e.pageY - _domCache.canvas.offsetTop;
-      for (var row = 0; row < _constants.numberOfRows; row++) {
-        for (var col = 0; col < _constants.numberOfCols; col++) {
-          var currentTile = this.grid[row][col];
-          if (this.isEventTarget(currentTile, x, y)) {
-            if (this.moveSource === 'start' || this.moveSource === 'finish') {
-              var previousTile = this.grid[this.previousRow][this.previousCol];
-              if (currentTile.state === 'empty') {
-                currentTile.state = this.moveSource;
-                currentTile.draw(this.grid[row][col].state);
-                previousTile.state = 'empty';
-                previousTile.draw();
-              } else {
-                return;
-              }
-            } else {
-              currentTile.state = currentTile.state === 'empty' ? 'wall' : currentTile.state === 'wall' ? 'empty' : currentTile.state;
-              currentTile.draw(currentTile.state);
-            }
-            this.previousRow = row;
-            this.previousCol = col;
-          }
-        }
-      }
-    }
-  }, {
-    key: 'up',
-    value: function up() {
-      this.moveSource = null;
-      this.previousRow = null;
-      this.previousCol = null;
-      _domCache.canvas.removeEventListener('mousemove', this.mouseMoveWrapper);
-    }
-  }, {
-    key: 'isEventTarget',
-    value: function isEventTarget(tile, x, y) {
-      var _ref = [tile.row, tile.col],
-          row = _ref[0],
-          col = _ref[1];
-
-      return (row != this.previousRow || col != this.previousCol) && x > col * (_constants.tileW + 1) && x < col * (_constants.tileW + 1) + _constants.tileW && y > row * (_constants.tileH + 1) && y < row * (_constants.tileH + 1) + _constants.tileH;
-    }
-  }]);
-
-  return MouseEvents;
-}();
-
-exports.default = MouseEvents;
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.disableButtons = disableButtons;
-exports.enableButtons = enableButtons;
-function disableButtons() {
-  var buttons = document.querySelectorAll('button');
-  for (var i = 0; i < buttons.length; i++) {
-    buttons[i].setAttribute('disabled', 'true');
-  }
-}
-
-function enableButtons() {
-  var buttons = document.querySelectorAll('button');
-  for (var i = 0; i < buttons.length; i++) {
-    buttons[i].removeAttribute('disabled');
-  }
-}
-
-/***/ }),
-/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -914,13 +779,145 @@ var Astar = function () {
 exports.default = Astar;
 
 /***/ }),
-/* 12 */,
-/* 13 */,
-/* 14 */
-/***/ (function(module, exports) {
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
 
-throw new Error("Module parse failed: Unexpected character '#' (1:22)\nYou may need an appropriate loader to handle this file type.\n| $bodyBackgroundColor: #F5F6CE;\r\n| $startSquareColor: #ff8c1a;\r\n| $finishSquareColor: #4d4dff;\r");
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.disableButtons = disableButtons;
+exports.enableButtons = enableButtons;
+function disableButtons() {
+  var buttons = document.querySelectorAll('button');
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].setAttribute('disabled', 'true');
+  }
+}
+
+function enableButtons() {
+  var buttons = document.querySelectorAll('button');
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].removeAttribute('disabled');
+  }
+}
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _constants = __webpack_require__(0);
+
+var _domCache = __webpack_require__(1);
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var MouseEvents = function () {
+  function MouseEvents(gridInstance) {
+    var _this = this;
+
+    _classCallCheck(this, MouseEvents);
+
+    this.grid = gridInstance.grid;
+    this.mouseMoveWrapper = function (e) {
+      return _this.move(e);
+    }; // need to wrap the function to be able to remove the event listener
+    this.moveSource;
+    this.previousRow;
+    this.previousCol;
+  }
+
+  _createClass(MouseEvents, [{
+    key: 'down',
+    value: function down(e) {
+      e = e || window.event;
+      var x = e.pageX - _domCache.canvas.offsetLeft;
+      var y = e.pageY - _domCache.canvas.offsetTop;
+
+      _domCache.canvas.addEventListener("mousemove", this.mouseMoveWrapper);
+
+      for (var row = 0; row < _constants.numberOfRows; row++) {
+        for (var col = 0; col < _constants.numberOfCols; col++) {
+          var currentTile = this.grid[row][col];
+          if (this.isEventTarget(currentTile, x, y)) {
+            if (currentTile.state === 'start') {
+              this.moveSource = 'start';
+            } else if (currentTile.state === 'finish') {
+              this.moveSource = 'finish';
+            } else {
+              currentTile.state = currentTile.state === 'empty' ? 'wall' : currentTile.state === 'wall' ? 'empty' : currentTile.state;
+              currentTile.draw(currentTile.state);
+            }
+            this.previousRow = row;
+            this.previousCol = col;
+          }
+        }
+      }
+    }
+  }, {
+    key: 'move',
+    value: function move(e) {
+      e = e || window.event;
+      var x = e.pageX - _domCache.canvas.offsetLeft;
+      var y = e.pageY - _domCache.canvas.offsetTop;
+      for (var row = 0; row < _constants.numberOfRows; row++) {
+        for (var col = 0; col < _constants.numberOfCols; col++) {
+          var currentTile = this.grid[row][col];
+          if (this.isEventTarget(currentTile, x, y)) {
+            if (this.moveSource === 'start' || this.moveSource === 'finish') {
+              var previousTile = this.grid[this.previousRow][this.previousCol];
+              if (currentTile.state === 'empty') {
+                currentTile.state = this.moveSource;
+                currentTile.draw(this.grid[row][col].state);
+                previousTile.state = 'empty';
+                previousTile.draw();
+              } else {
+                return;
+              }
+            } else {
+              currentTile.state = currentTile.state === 'empty' ? 'wall' : currentTile.state === 'wall' ? 'empty' : currentTile.state;
+              currentTile.draw(currentTile.state);
+            }
+            this.previousRow = row;
+            this.previousCol = col;
+          }
+        }
+      }
+    }
+  }, {
+    key: 'up',
+    value: function up() {
+      this.moveSource = null;
+      this.previousRow = null;
+      this.previousCol = null;
+      _domCache.canvas.removeEventListener('mousemove', this.mouseMoveWrapper);
+    }
+  }, {
+    key: 'isEventTarget',
+    value: function isEventTarget(tile, x, y) {
+      var _ref = [tile.row, tile.col],
+          row = _ref[0],
+          col = _ref[1];
+
+      return (row != this.previousRow || col != this.previousCol) && x > col * (_constants.tileW + 1) && x < col * (_constants.tileW + 1) + _constants.tileW && y > row * (_constants.tileH + 1) && y < row * (_constants.tileH + 1) + _constants.tileH;
+    }
+  }]);
+
+  return MouseEvents;
+}();
+
+exports.default = MouseEvents;
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=main.bundle.js.map
