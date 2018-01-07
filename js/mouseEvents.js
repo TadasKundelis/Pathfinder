@@ -4,8 +4,6 @@ import {numberOfRows} from './constants'
 import {numberOfCols} from './constants'
 import {canvas} from './domCache'
 
-
-
 export default class MouseEvents{
   constructor(gridInstance){
     this.grid = gridInstance.grid;
@@ -26,11 +24,11 @@ export default class MouseEvents{
       for (let col = 0; col < numberOfCols; col++) {
         let currentTile = this.grid[row][col];
         if (this.isEventTarget(currentTile, x, y)) {
-          if (currentTile.state === 'start') {
+          if (currentTile.state === 'start') { // if event target is start or finish, we only set moveSource property to be able to move them with mouse move
             this.moveSource = 'start';
           } else if (currentTile.state === 'finish') {
             this.moveSource = 'finish';
-          } else {
+          } else { // if event target is empty square or a wall, toggle states and redraw
             currentTile.state = currentTile.state === 'empty' ? 'wall' : 
                                 currentTile.state === 'wall' ? 'empty' :
                                 currentTile.state
@@ -51,17 +49,17 @@ export default class MouseEvents{
       for (let col = 0; col < numberOfCols; col++) {
         let currentTile = this.grid[row][col];
         if (this.isEventTarget(currentTile, x, y)) {
-          if (this.moveSource === 'start' || this.moveSource === 'finish') {
+          if (this.moveSource === 'start' || this.moveSource === 'finish') {//if previous square was start or finish
             let previousTile = this.grid[this.previousRow][this.previousCol];
-            if (currentTile.state === 'empty') {
-              currentTile.state = this.moveSource
-              currentTile.draw(this.grid[row][col].state)
-              previousTile.state = 'empty';
-              previousTile.draw()
+            if (currentTile.state === 'empty') { // if current square is empty
+              currentTile.state = this.moveSource // make it either start or finish (depends on the source)
+              currentTile.draw(this.grid[row][col].state) // draw it
+              previousTile.state = 'empty'; // make previous square empty
+              previousTile.draw() // draw it
             } else {
               return
             }
-          } else { 
+          } else { // or just toggle empty square with wall
             currentTile.state = currentTile.state === 'empty' ? 'wall' : 
                                 currentTile.state === 'wall' ? 'empty' :
                                 currentTile.state
@@ -81,7 +79,6 @@ export default class MouseEvents{
     canvas.removeEventListener('mousemove', this.mouseMoveWrapper)
   }
 
-  
   isEventTarget(tile, x, y) {
     let [row, col] = [tile.row, tile.col]
     return (row != this.previousRow || col != this.previousCol) 
