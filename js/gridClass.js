@@ -8,7 +8,7 @@ import Tile from './tileClass'
 
 export default class Grid {
   constructor() {
-	  this.grid = []
+    this.grid = []
   }
   
   init() {
@@ -72,7 +72,6 @@ export default class Grid {
         let currentTile = this.grid[row][col];
         if (currentTile.state === 'wall') {
           currentTile.reset();
-          currentTile.draw();
         }
       }
     }
