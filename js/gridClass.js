@@ -4,8 +4,6 @@ import {numberOfRows} from './constants'
 import {numberOfCols} from './constants'
 import Tile from './tileClass'
 
-
-
 export default class Grid {
   constructor() {
     this.grid = []
@@ -15,7 +13,7 @@ export default class Grid {
     for (let row = 0; row < numberOfRows; row++) {
       this.grid[row] = [];
       for (let col = 0; col < numberOfCols; col++) {
-        let x = col * (tileW + 1) //get x coordinate pixel for canvas draw; add 1 to have a border
+        let x = col * (tileW + 1) //get x coordinate pixel for canvas draw; add 1px to have a border
         let y = row * (tileH + 1) // same for y
         this.grid[row][col] = new Tile (x, y, 'empty', row, col) // assign Tile object to every matrix cell
         this.grid[row][col].draw() // draw the tile
