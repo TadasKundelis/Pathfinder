@@ -13,23 +13,23 @@ module.exports = {
     filename: 'main.bundle.js'
   },
   module: {
-  	rules: [
+    rules: [
       {
-	    test: /\.js$/,
+        test: /\.js$/,
         use: {
-	      loader: 'babel-loader',
-	      options: {
-	        presets: ['env']
-	      }
+	  loader: 'babel-loader',
+	  options: {
+	    presets: ['env']
+	  }
         }, 			
       },
       {
-	    test: /\.scss$/,
+	test: /\.scss$/,
         use: extractPlugin.extract({
-		  use: ['css-loader', 'sass-loader']
-		})
-	  }
-	]
+          use: ['css-loader', 'sass-loader']
+        })
+      }
+    ]
   },
   watch : true,
   stats: {
@@ -38,4 +38,4 @@ module.exports = {
   plugins: [
     extractCss
   ] 
- }
+}
