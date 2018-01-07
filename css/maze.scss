@@ -16,16 +16,14 @@ body {
 }
 
 main {
-  
   display: flex;
   flex-direction: column;
-    
+   
   canvas {
     margin: 30px;
   }
 
   #button_wrapper {
-  
     margin-top: 25px;
     text-align: center;
     
@@ -98,7 +96,7 @@ aside {
   background-color: $wallSquareColor;
 }
 
-#empty{
+#empty {
   background-color: $emptySquareColor;
 }
 
