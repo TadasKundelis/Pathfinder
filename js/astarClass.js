@@ -11,8 +11,8 @@ export default class Astar{
   }
 
   exec(){
-  	let selectedTile, selectedTileIndex, neighbors;
-  	this.setStart();
+    let selectedTile, selectedTileIndex, neighbors;
+    this.setStart();
     while (this.openList.length) {
       if (this.pathFound) break
       [selectedTile, selectedTileIndex] = this.findTileWithLowestCost(this.openList)  
@@ -34,7 +34,6 @@ export default class Astar{
     this.openList.push(this.start)
   }
     
-
   findTileWithLowestCost() {
     let lowestCost, selectedTile, selectedTileIndex;
     lowestCost = this.openList[0].totalCost
